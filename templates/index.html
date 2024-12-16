@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель управления</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .btn-upload {
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-upload:hover {
+            background-color: #218838;
+        }
+        .btn-logout {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-logout:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Системная информация</h1>
+    <form action="/upload" method="POST">
+        <button class="btn-upload" type="submit">Обновить данные</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Имя компьютера никиты)</th>
+                <th>Имя пользователя</th>
+                <th>Версия ОС</th>
+                <th>IP-адреса</th>
+                <th>Процессы</th>
+                <th>Время</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>{{ row[5] }}</td>
+                <td>{{ row[6] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <form action="/logout" method="GET">
+        <button class="btn-logout" type="submit">Выйти</button>
+    </form>
+</body>
+</html>

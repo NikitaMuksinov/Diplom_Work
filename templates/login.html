@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+            margin-top: 20px;
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+        }
+        input {
+            margin: 5px 0;
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: black;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+        .title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">Rogipnol</div>
+    <h1>Вход</h1>
+    <form method="POST">
+        <label for="username">Логин:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Войти</button>
+    </form>
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
+
